@@ -51,11 +51,17 @@ quick walkthrough might help out once in a while.");
 	writeln("");
 	writeln("[2 Selecting a key in the Windows Registry]");
 	
-	writeln("Now selecting the Windows Key is simple. Choose one of the Windows Hives mentioned before and use .getKey method of the Key class. ");
+	writeln("Now selecting the Keys is simple. Choose one of the Windows Hives mentioned before 
+	and use .getKey method of the Key class to get to the subkey that exist. ");
+	write("Example: ");
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").name);
 	
+    auto class_members = [__traits(derivedMembers, Registry)];
+    writeln(class_members);   
+	
+	
 	writeln("..");
-	writeln("Now it is possible to do some manipulation on the Windows Registry Hives ");
+	//writeln("Now it is possible to do some manipulation on the Windows Registry Hives ");
 
 	writeln("");
 	writeln("[3.Opening a subkey]");
