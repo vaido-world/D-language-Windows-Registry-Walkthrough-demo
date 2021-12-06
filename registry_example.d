@@ -44,7 +44,10 @@ quick walkthrough might help out once in a while.");
 	writeln();
 	writeln(" The Main Keys are predefined and did not change through Windows operating system history.");
 	writeln(" Protip: All the listed keys above are known as Windows Registry Hives.");
-
+	writeln(" Note: The Windows Registry Hives are simply predefined macros in the win32 platform and do not belong to an array.");
+	writeln(" They are like immutable variables that were set long time ago by Windows Developers and never changed, even today.");
+	writeln(" New Registry Hives were never added even after all these decades since Windows Registry became a thing.");
+		
 	writeln("");
 	writeln("[2 Selecting a key in the Windows Registry]");
 	writeln("..");
