@@ -50,6 +50,10 @@ quick walkthrough might help out once in a while.");
 		
 	writeln("");
 	writeln("[2 Selecting a key in the Windows Registry]");
+	
+	writeln("Now selecting the Windows Key is simple. Choose one of the Windows Hives mentioned before and use .getKey method of the Key class. ");
+	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").name);
+	
 	writeln("..");
 	writeln("Now it is possible to do some manipulation on the Windows Registry Hives ");
 
