@@ -81,15 +81,15 @@ quick walkthrough might help out once in a while.");
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").getValue("Path").type);
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").getValue("Path").value_SZ);
 	
-	Key environment = Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment");
-	Value path = environment.getValue("Path");
+	Key subkey = Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment");
+	Value subkeyValue = subkey.getValue("Path");
 	
 	writeln("---------------");
-	//writeln(path.type);
+	//writeln(subkeyValue.type);
 	
 	// Implement Final with all the Reg values or:
 	// Remove the final attribute and add Default: for the switch  	 default: writeln("None has matched");
-	 final switch (path.type){
+	 final switch (subkeyValue.type){
 	 
 		case REG_VALUE_TYPE.REG_UNKNOWN: 
 			writeln("Key with unknown value type"); 
@@ -100,23 +100,23 @@ quick walkthrough might help out once in a while.");
 			break;	 
 			
 		case REG_VALUE_TYPE.REG_SZ: 
-			writeln(path.value_SZ); 
+			writeln(subkeyValue.value_SZ); 
 			break;
 			
 		case REG_VALUE_TYPE.REG_EXPAND_SZ: 
-			writeln(path.value_EXPAND_SZ); 
+			writeln(subkeyValue.value_EXPAND_SZ); 
 			break;
 
 		case REG_VALUE_TYPE.REG_BINARY: 
-			writeln(path.value_BINARY); 
+			writeln(subkeyValue.value_BINARY); 
 			break;
 			
 		case REG_VALUE_TYPE.REG_DWORD: 
-			writeln(path.value_DWORD); 
+			writeln(subkeyValue.value_DWORD); 
 			break;
 						
 		case REG_VALUE_TYPE.REG_DWORD_BIG_ENDIAN: 
-			writeln(path.value_DWORD); 
+			writeln(subkeyValue.value_DWORD); 
 			break;
 						
 		case REG_VALUE_TYPE.REG_LINK: 
@@ -125,7 +125,7 @@ quick walkthrough might help out once in a while.");
 			break;
 						
 		case REG_VALUE_TYPE.REG_MULTI_SZ: 
-			writeln(path.value_MULTI_SZ); 
+			writeln(subkeyValue.value_MULTI_SZ); 
 			break;
 						
 		case REG_VALUE_TYPE.REG_RESOURCE_LIST: 
@@ -145,11 +145,8 @@ quick walkthrough might help out once in a while.");
 			
 
 		case REG_VALUE_TYPE.REG_QWORD: 
-			writeln(path.value_QWORD); 
+			writeln(subkeyValue.value_QWORD); 
 			break;
-
-
-
 			
 	}
 	writeln("---------------");
