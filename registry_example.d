@@ -56,8 +56,18 @@ quick walkthrough might help out once in a while.");
 	write("Example: ");
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").name);
 	
-    auto class_members = [__traits(derivedMembers, Registry)];
-    writeln(class_members);   
+	
+	// New GitHub Repository: D-Language-Resources
+    //auto class_members = [__traits(derivedMembers, Registry)];
+    // writeln(class_members); 
+	write("Windows Registry Hives supported by D std library: ");
+	foreach (class_member; __traits(derivedMembers, Registry))
+       // writeln(typeid(typeof(t)));
+	   if (class_member[0] != '_'){
+			write(class_member ~ " ");
+	   }
+       writeln();
+
 	
 	
 	writeln("..");
