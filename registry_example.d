@@ -87,8 +87,7 @@ quick walkthrough might help out once in a while.");
 	writeln("---------------");
 	//writeln(subkeyValue.type);
 	
-	// Implement Final with all the Reg values or:
-	// Remove the final attribute and add Default: for the switch  	 default: writeln("None has matched");
+	// Get the actual value of subkey by type
 	 final switch (subkeyValue.type){
 	 
 		case REG_VALUE_TYPE.REG_UNKNOWN: 
