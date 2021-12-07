@@ -34,6 +34,14 @@ void main(){
 			writeln("* " ~ class_member);
 	   }
        writeln();
+	   
+	writeln("Windows Registry Value Types supported by D std.windows.registry: ");
+	foreach (class_member; __traits(derivedMembers, REG_VALUE_TYPE))
+       // writeln(typeid(typeof(t)));
+	   if (class_member[0] != '_'){
+			writeln("* " ~ class_member);
+	   }
+       writeln();
 
 	
 	writeln("A Walkthrough of Windows Registry");
@@ -70,7 +78,31 @@ quick walkthrough might help out once in a while.");
 	and use .getKey method of the Key class to get to the subkey that exist. ");
 	write("Example: ");
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").name);
+	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").getValue("Path").type);
+	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").getValue("Path").value_SZ);
 	
+	Key environment = Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment");
+	Value path = environment.getValue("Path");
+	
+	writeln("---------------");
+	//writeln(path.type);
+	
+	// Implement Final with all the Reg values or:
+	// Remove the final attribute and add Default: for the switch  	 default: writeln("None has matched");
+	 final switch (path.type){
+	 
+		case REG_VALUE_TYPE.REG_SZ: 
+			writeln(path.value_SZ); 
+			break;
+			
+		case REG_VALUE_TYPE.REG_EXPAND_SZ: 
+			writeln(path.value_SZ); 
+			break;
+			
+
+	}
+	writeln("---------------");
+
 	
 
 
