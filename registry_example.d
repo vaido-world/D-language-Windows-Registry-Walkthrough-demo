@@ -8,7 +8,6 @@ import std.windows.registry;
 
 void main(){
 
-
 	// To generate D documentation from std.windows.registry:
 	// dmd -lib -D "C:\D\dmd2\src\phobos\std\windows\registry.d"
 
@@ -20,6 +19,22 @@ void main(){
 	// import core.sys.windows.winreg;
 	// Key addAwesomeKey = new Key(HKEY_CURRENT_USER, "SomeAwesomeKeyName", true); //Not made to use this way
 	
+	
+	
+	// New GitHub Repository: D-Language-Resources
+    //auto class_members = [__traits(derivedMembers, Registry)];
+    // writeln(class_members); 
+	
+	
+	
+	writeln("Windows Registry Hives supported by D std.windows.registry: ");
+	foreach (class_member; __traits(derivedMembers, Registry))
+       // writeln(typeid(typeof(t)));
+	   if (class_member[0] != '_'){
+			writeln("* " ~ class_member);
+	   }
+       writeln();
+
 	
 	writeln("A Walkthrough of Windows Registry");
 	writeln("Since there were no documentation, I though that a 
@@ -57,16 +72,7 @@ quick walkthrough might help out once in a while.");
 	writeln(Registry.localMachine().getKey("System\\CurrentControlSet\\Control\\Session Manager\\Environment").name);
 	
 	
-	// New GitHub Repository: D-Language-Resources
-    //auto class_members = [__traits(derivedMembers, Registry)];
-    // writeln(class_members); 
-	write("Windows Registry Hives supported by D std library: ");
-	foreach (class_member; __traits(derivedMembers, Registry))
-       // writeln(typeid(typeof(t)));
-	   if (class_member[0] != '_'){
-			write(class_member ~ " ");
-	   }
-       writeln();
+
 
 	
 	
