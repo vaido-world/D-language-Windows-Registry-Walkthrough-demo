@@ -91,15 +91,66 @@ quick walkthrough might help out once in a while.");
 	// Remove the final attribute and add Default: for the switch  	 default: writeln("None has matched");
 	 final switch (path.type){
 	 
+		case REG_VALUE_TYPE.REG_UNKNOWN: 
+			writeln("Key with unknown value type"); 
+			break;	 
+				 
+		case REG_VALUE_TYPE.REG_NONE: 
+			writeln("Key with unspecified value type"); 
+			break;	 
+			
 		case REG_VALUE_TYPE.REG_SZ: 
 			writeln(path.value_SZ); 
 			break;
 			
 		case REG_VALUE_TYPE.REG_EXPAND_SZ: 
-			writeln(path.value_SZ); 
+			writeln(path.value_EXPAND_SZ); 
+			break;
+
+		case REG_VALUE_TYPE.REG_BINARY: 
+			writeln(path.value_BINARY); 
 			break;
 			
+		case REG_VALUE_TYPE.REG_DWORD: 
+			writeln(path.value_DWORD); 
+			break;
+						
+		case REG_VALUE_TYPE.REG_DWORD_BIG_ENDIAN: 
+			writeln(path.value_DWORD); 
+			break;
+						
+		case REG_VALUE_TYPE.REG_LINK: 
+			writeln("The person who programmed this do not know how to handle this REG_LINK value type. Sorry.."); 
+			writeln("Google it, learn and implement if necessary."); 
+			break;
+						
+		case REG_VALUE_TYPE.REG_MULTI_SZ: 
+			writeln(path.value_MULTI_SZ); 
+			break;
+						
+		case REG_VALUE_TYPE.REG_RESOURCE_LIST: 
+			writeln("The person who programmed this do not know how to handle this REG_RESOURCE_LIST value type. Sorry.."); 
+			writeln("Google it, learn and implement if necessary."); 
+			break;
 
+		case REG_VALUE_TYPE.REG_FULL_RESOURCE_DESCRIPTOR: 
+			writeln("The person who programmed this do not know how to handle this REG_FULL_RESOURCE_DESCRIPTOR value type. Sorry.."); 
+			writeln("Google it, learn and implement if necessary."); 
+			break;
+			
+		case REG_VALUE_TYPE.REG_RESOURCE_REQUIREMENTS_LIST: 
+			writeln("The person who programmed this do not know how to handle this REG_RESOURCE_REQUIREMENTS_LIST value type. Sorry.."); 
+			writeln("Google it, learn and implement if necessary."); 
+			break;			
+			
+
+		case REG_VALUE_TYPE.REG_QWORD: 
+			writeln(path.value_QWORD); 
+			break;
+
+
+
+			
 	}
 	writeln("---------------");
 
