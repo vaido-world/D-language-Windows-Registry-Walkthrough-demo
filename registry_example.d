@@ -102,6 +102,7 @@ quick walkthrough might help out once in a while.");
 			writeln(subkeyValue.value_SZ); 
 			break;
 			
+		// Possible Bug: REG_EXPAND_SZ is detected as REG_SZ
 		case REG_VALUE_TYPE.REG_EXPAND_SZ: 
 			writeln(subkeyValue.value_EXPAND_SZ); 
 			break;
